@@ -11,11 +11,8 @@ This project extracts and summarizes the transcript of a given YouTube video. It
 Features:-
 
 Fetches YouTube video transcripts automatically.
-
 Performs extractive summarization using TF-IDF.
-
 Configurable compression ratio for summary length.
-
 Handles missing transcripts and short videos gracefully.
 
 
@@ -26,6 +23,17 @@ Ensure you have Python installed (>=3.7). Install the required dependencies:
 
 pip install youtube-transcript-api scikit-learn nltk numpy
 
+Additionally, ensure that the necessary NLTK data is installed by running:
+
+import nltk
+
+nltk.download('punkt')
+
+nltk.data.find('tokenizers/punkt')
+
+Ensure you have Python installed (>=3.7). Install the required dependencies:
+
+pip install youtube-transcript-api scikit-learn nltk numpy
 
 
 Libraries Used:-
@@ -43,18 +51,15 @@ numpy: Used for numerical computations, specifically handling TF-IDF scores.
 How It Works:-
 
 Fetching Transcripts:
-
-The get_video_transcript function extracts subtitles from a given YouTube video using youtube_transcript_api.
-
+The get_video_transcript function extracts subtitles from a given YouTube video using 
+youtube_transcript_api.
 It joins all subtitle segments into a single string.
 
 
 Summarization Process:-
 
 The text is split into sentences using sent_tokenize from NLTK.
-
 The TfidfVectorizer is used to compute the importance of each sentence.
-
 Sentences with the highest scores are selected for the summary.
 
 
